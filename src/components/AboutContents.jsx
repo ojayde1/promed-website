@@ -44,7 +44,7 @@ const AboutContents = () => {
                 <div className="section-title">
                   <h3 className="wow fadeInUp">about us</h3>
                   <h2 className="text-anime-style-3">
-                    What exactly is this Promed Africa?
+                    This is ENFORCA TECHNOLOGIES AWS AMPLIFY PROJECT
                     {/* Drugs.ng is Nigeria’s first fully managed B2B marketplace
                     tailored to meet the unique needs of the pharmaceutical and
                     healthcare sectors. */}
