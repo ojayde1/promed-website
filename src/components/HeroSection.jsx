@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -61,12 +62,20 @@ const HeroSection = () => {
             <div className="hero-images">
               <div className="hero-image-1">
                 <figure className="image-anime reveal">
-                  <img src="/pictures/promed-hero-image-1.jpg" alt />
+                  <Image
+                    src="/pictures/promed-hero-image-1.jpg"
+                    alt="hero"
+                    unoptimized
+                  />
                 </figure>
               </div>
               <div className="hero-image-2">
                 <figure className="image-anime reveal">
-                  <img src="/pictures/promed-hero-image-2.jpg" alt />
+                  <Image
+                    src="/pictures/promed-hero-image-2.jpg"
+                    alt="Cardiology"
+                    unoptimized
+                  />
                 </figure>
               </div>
             </div>

@@ -1,4 +1,6 @@
 import { blogs } from "@/datas/blog";
+import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 const HomeContents = () => {
@@ -51,7 +53,12 @@ const HomeContents = () => {
               >
                 {/* contact Icon Start */}
                 <div className="contact-icon">
-                  <img src="images/icon-home-contact-1.svg" alt />
+                  <Image
+                    src="images/icon-home-contact-1.svg"
+                    alt="appointment"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 {/* Contact Icon End */}
                 {/* Home Contact Content Start */}
@@ -74,7 +81,12 @@ const HomeContents = () => {
               >
                 {/* contact Icon Start */}
                 <div className="contact-icon">
-                  <img src="images/icon-home-contact-2.svg" alt />
+                  <Image
+                    src="images/icon-home-contact-2.svg"
+                    alt="appointment"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 {/* Contact Icon End */}
                 {/* Home Contact Content Start */}
@@ -103,18 +115,33 @@ const HomeContents = () => {
                 <div className="about-us-image">
                   <div className="about-us-image-1">
                     <figure className="image-anime reveal">
-                      <img src="/pictures/promed-image-15.jpg" alt />
+                      <Image
+                        src="/pictures/promed-image-15.jpg"
+                        alt="appointment"
+                        width={32}
+                        height={32}
+                      />
                     </figure>
                   </div>
                   <div className="about-us-image-2">
                     <figure className="image-anime reveal">
-                      <img src="/pictures/promed-hero-image-1.jpg" alt />
+                      <Image
+                        src="/pictures/promed-hero-image-1.jpg"
+                        alt="hero"
+                        width={32}
+                        height={32}
+                      />
                     </figure>
                   </div>
                 </div>
                 <div className="about-video wow fadeInUp">
                   <figure className="image-anime">
-                    <img src="/pictures/PHARMACY-IN-NIGERIA.jpg" alt />
+                    <Image
+                      src="/pictures/PHARMACY-IN-NIGERIA.jpg"
+                      alt="pharmacy"
+                      width={32}
+                      height={32}
+                    />
                     {/* <a
                       href="https://www.youtube.com/watch?v=Y-x0efG1seA"
                       className="btn-video popup-youtube"
@@ -182,7 +209,12 @@ const HomeContents = () => {
               <div className="cta-item">
                 {/* Icon Box Start */}
                 <div className="icon-box">
-                  <img src="images/icon-appointment.svg" alt />
+                  <Image
+                    src="images/icon-appointment.svg"
+                    alt="appointment"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 {/* Icon Box End */}
                 {/* Cta Content Start */}
@@ -242,7 +274,12 @@ const HomeContents = () => {
               <div className="work-step-item wow fadeInUp">
                 {/* Icon Box Start */}
                 <div className="icon-box">
-                  <img src="images/icon-work-step-1.svg" alt />
+                  <Image
+                    src="images/icon-work-step-1.svg"
+                    alt="work"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 {/* Icon Box End */}
                 {/* Step Item Content Start */}
@@ -261,7 +298,12 @@ const HomeContents = () => {
               >
                 {/* Icon Box Start */}
                 <div className="icon-box">
-                  <img src="images/icon-work-step-2.svg" alt />
+                  <Image
+                    src="images/icon-work-step-2.svg"
+                    alt="appointment"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 {/* Icon Box End */}
                 {/* Step Item Content Start */}
@@ -280,7 +322,12 @@ const HomeContents = () => {
               >
                 {/* Icon Box Start */}
                 <div className="icon-box">
-                  <img src="images/icon-work-step-3.svg" alt />
+                  <Image
+                    src="images/icon-work-step-3.svg"
+                    alt="work"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 {/* Icon Box End */}
                 {/* Step Item Content Start */}
@@ -296,7 +343,12 @@ const HomeContents = () => {
               <div className="work-step-item wow fadeInUp" data-wow-delay="1s">
                 {/* Icon Box Start */}
                 <div className="icon-box">
-                  <img src="images/icon-work-step-4.svg" alt />
+                  <Image
+                    src="images/icon-work-step-4.svg"
+                    alt="work"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 {/* Icon Box End */}
                 {/* Step Item Content Start */}
@@ -328,31 +380,85 @@ const HomeContents = () => {
           </div>
           <div className="row">
             {blogs?.map((item) => (
-              <div className="col-lg-4 col-md-6">
+              // <div className="col-lg-4 col-md-6">
+              //   {/* Post Item Start */}
+              //   <div className="post-item wow fadeInUp" data-wow-delay="0.25s">
+              //     {/* Post Image Start */}
+              //     <div className="post-featured-image">
+              //       <figure className="image-anime">
+              //         <a href="#">
+              //           <img src={item?.image} alt />
+              //         </a>
+              //       </figure>
+              //     </div>
+              //     {/* Post Image End */}
+              //     {/* Post Content Start */}
+              //     <div className="post-item-body">
+              //       <h2>
+              //         <a href={`/blog/${item.id}`}>{item.title}</a>
+              //       </h2>
+              //       <p>{truncateText(`${item.contents[0]?.content}`, 20)}</p>
+              //     </div>
+              //     {/* Post Content End */}
+              //     {/* Btn Readmore Start */}
+              //     <div className="btn-readmore">
+              //       <a href={`/blog/${item.id}`}>
+              //         read more <i className="fa-solid fa-arrow-right-long" />
+              //       </a>
+              //     </div>
+              //     {/* Btn Readmore End */}
+              //   </div>
+              //   {/* Post Item End */}
+              // </div>
+
+              <div className="col-lg-4 col-md-6" key={item.id || index}>
                 {/* Post Item Start */}
                 <div className="post-item wow fadeInUp" data-wow-delay="0.25s">
                   {/* Post Image Start */}
                   <div className="post-featured-image">
                     <figure className="image-anime">
-                      <a href="#">
-                        <img src={item?.image} alt />
-                      </a>
+                      {/* 2. FIX: Do not use an `<a>` element to navigate... Use `<Link />`
+          // Replace <a href="#"> with <Link href="/blog/[id]">.
+          */}
+                      <Link href={`/blog/${item.id}`}>
+                        {" "}
+                        {/* Assuming you want to link to the blog post details */}
+                        {/* 3. FIX: Using `<img>` could result in slower LCP... Use `<Image />`
+            // 4. FIX: Invalid alt value for img.
+            // Replace <img> with <Image />, add required 'alt', 'width', and 'height' props.
+            */}
+                        <Image
+                          src={item?.image}
+                          alt={item?.title || "Blog post image"} // Provide a descriptive alt text
+                          width={400} // IMPORTANT: Replace with the actual intrinsic width of your images
+                          height={250} // IMPORTANT: Replace with the actual intrinsic height of your images
+                          layout="responsive" // Common for images that should scale
+                        />
+                      </Link>
                     </figure>
                   </div>
                   {/* Post Image End */}
                   {/* Post Content Start */}
                   <div className="post-item-body">
                     <h2>
-                      <a href={`/blog/${item.id}`}>{item.title}</a>
+                      {/* 5. FIX: Do not use an `<a>` element to navigate... Use `<Link />`
+          // Replace <a> with <Link>.
+          */}
+                      <Link href={`/blog/${item.id}`}>{item.title}</Link>
                     </h2>
                     <p>{truncateText(`${item.contents[0]?.content}`, 20)}</p>
                   </div>
                   {/* Post Content End */}
                   {/* Btn Readmore Start */}
                   <div className="btn-readmore">
-                    <a href={`/blog/${item.id}`}>
-                      read more <i className="fa-solid fa-arrow-right-long" />
-                    </a>
+                    {/* 6. FIX: Do not use an `<a>` element to navigate... Use `<Link />`
+        // Replace <a> with <Link>. The nested <a> is for styling.
+        */}
+                    <Link href={`/blog/${item.id}`}>
+                      <a>
+                        read more <i className="fa-solid fa-arrow-right-long" />
+                      </a>
+                    </Link>
                   </div>
                   {/* Btn Readmore End */}
                 </div>
@@ -381,7 +487,12 @@ const HomeContents = () => {
               {/* Contact Appointment Start */}
               <div className="contact-appointment">
                 <div className="appointment-img">
-                  <img src="images/contact-us-img.png" alt />
+                  <Image
+                    src="images/contact-us-img.png"
+                    alt="contact"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="appointment-content">
                   <h3>

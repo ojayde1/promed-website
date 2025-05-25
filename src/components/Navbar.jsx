@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -8,9 +10,14 @@ const Navbar = () => {
           <div className="container">
             {/* Logo Start */}
             <div className="header-logo">
-              <a className="navbar-brand" href="/">
-                <img src="/images/promed_africa_logo.png" alt />
-              </a>
+              <Link className="navbar-brand" href="/">
+               
+                <Image
+                  src="/images/promed_africa_logo.png"
+                  alt="Africa logo"
+                  unoptimized
+                />
+              </Link>
             </div>
             {/* Logo End */}
             {/* Main Menu Start */}
@@ -18,9 +25,9 @@ const Navbar = () => {
               <div className="nav-menu-wrapper">
                 <ul className="navbar-nav mr-auto" id="menu">
                   <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" href="/">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="/about-us">

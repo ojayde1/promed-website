@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const BlogDetails = ({ blogTitle, contents, image }) => {
   return (
@@ -34,7 +35,7 @@ const BlogDetails = ({ blogTitle, contents, image }) => {
                 {/* Post Single Image Start */}
                 <div className="post-image">
                   <figure className="image-anime reveal">
-                    <img src={image} alt />
+                    <Image src={image} alt="" unoptimized />
                   </figure>
                 </div>
                 {/* Post Single Image End */}

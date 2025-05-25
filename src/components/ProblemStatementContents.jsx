@@ -1,4 +1,6 @@
 import { blogs } from "@/datas/blog";
+import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 const ProblemStatementContents = () => {
@@ -20,9 +22,12 @@ const ProblemStatementContents = () => {
               <div className="subpage-header-box">
                 <h1 className="text-anime-style-3">Problem Statement</h1>
                 <ol className="breadcrumb wow fadeInUp">
-                  <li>
+                  {/* <li>
                     <a href="/">Home</a>
-                  </li>
+                  </li> */}
+                  <Link href="/">
+                    <a>Home</a>
+                  </Link>
                   <li>Problem statement</li>
                 </ol>
               </div>
@@ -85,7 +90,12 @@ const ProblemStatementContents = () => {
               {/* Improving Image Start */}
               <div className="improving-img">
                 <figure className="image-anime reveal">
-                  <img src="/pictures/kano-drug-shop.jpeg" alt />
+                  <Image
+                    src="/pictures/kano-drug-shop.jpeg"
+                    alt="appointment"
+                    width={32}
+                    height={32}
+                  />
                 </figure>
               </div>
               {/* Improving Image End */}
@@ -187,7 +197,12 @@ const ProblemStatementContents = () => {
               {/* Improving Image Start */}
               <div className="improving-img">
                 <figure className="image-anime reveal">
-                  <img src="/pictures/promed-image-8.jpg" alt />
+                  <Image
+                    src="/pictures/promed-image-8.jpg"
+                    alt="appointment"
+                    width={32}
+                    height={32}
+                  />
                 </figure>
               </div>
               {/* Improving Image End */}
@@ -214,31 +229,85 @@ const ProblemStatementContents = () => {
           </div>
           <div className="row">
             {blogs?.map((item) => (
-              <div className="col-lg-4 col-md-6">
+              // <div className="col-lg-4 col-md-6">
+              //   {/* Post Item Start */}
+              //   <div className="post-item wow fadeInUp" data-wow-delay="0.25s">
+              //     {/* Post Image Start */}
+              //     <div className="post-featured-image">
+              //       <figure className="image-anime">
+              //         <a href="#">
+              //           <img src={item?.image} alt />
+              //         </a>
+              //       </figure>
+              //     </div>
+              //     {/* Post Image End */}
+              //     {/* Post Content Start */}
+              //     <div className="post-item-body">
+              //       <h2>
+              //         <a href={`/blog/${item.id}`}>{item.title}</a>
+              //       </h2>
+              //       <p>{truncateText(`${item.contents[0]?.content}`, 20)}</p>
+              //     </div>
+              //     {/* Post Content End */}
+              //     {/* Btn Readmore Start */}
+              //     <div className="btn-readmore">
+              //       <a href={`/blog/${item.id}`}>
+              //         read more <i className="fa-solid fa-arrow-right-long" />
+              //       </a>
+              //     </div>
+              //     {/* Btn Readmore End */}
+              //   </div>
+              //   {/* Post Item End */}
+              // </div>
+
+              <div className="col-lg-4 col-md-6" key={item.id || index}>
                 {/* Post Item Start */}
                 <div className="post-item wow fadeInUp" data-wow-delay="0.25s">
                   {/* Post Image Start */}
                   <div className="post-featured-image">
                     <figure className="image-anime">
-                      <a href="#">
-                        <img src={item?.image} alt />
-                      </a>
+                      {/* 2. Fix for: Error: Do not use an `<a>` element to navigate... Use `<Link />` from `next/link`
+          // Replace <a href="#"> with <Link href="/blog/[id]">.
+          // The `href="#"` typically indicates a non-functional or placeholder link.
+          // For a blog post, it's almost certainly intended to go to the post's detail page.
+          */}
+                      <Link href={`/blog/${item.id}`}>
+                        {/* 3. Fix for: Warning: Using `<img>` could result in slower LCP... Consider using `<Image />`
+            // 4. Fix for: Warning: Invalid alt value for img.
+            // Replace <img> with <Image />, and add required 'alt', 'width', and 'height' props.
+            */}
+                        <Image
+                          src={item?.image}
+                          alt={item?.title || "Blog post image"} // Provide a meaningful alt text for accessibility
+                          width={400} // IMPORTANT: Replace with the actual intrinsic width of your image
+                          height={250} // IMPORTANT: Replace with the actual intrinsic height of your image
+                          layout="responsive" // A common layout for images that should scale within their container
+                        />
+                      </Link>
                     </figure>
                   </div>
                   {/* Post Image End */}
                   {/* Post Content Start */}
                   <div className="post-item-body">
                     <h2>
-                      <a href={`/blog/${item.id}`}>{item.title}</a>
+                      {/* 5. Fix for: Error: Do not use an `<a>` element to navigate... Use `<Link />` from `next/link`
+          // Replace <a> with <Link>.
+          */}
+                      <Link href={`/blog/${item.id}`}>{item.title}</Link>
                     </h2>
                     <p>{truncateText(`${item.contents[0]?.content}`, 20)}</p>
                   </div>
                   {/* Post Content End */}
                   {/* Btn Readmore Start */}
                   <div className="btn-readmore">
-                    <a href={`/blog/${item.id}`}>
-                      read more <i className="fa-solid fa-arrow-right-long" />
-                    </a>
+                    {/* 6. Fix for: Error: Do not use an `<a>` element to navigate... Use `<Link />` from `next/link`
+        // Replace <a> with <Link>. The nested <a> is for styling.
+        */}
+                    <Link href={`/blog/${item.id}`}>
+                      <a>
+                        read more <i className="fa-solid fa-arrow-right-long" />
+                      </a>
+                    </Link>
                   </div>
                   {/* Btn Readmore End */}
                 </div>
@@ -259,7 +328,12 @@ const ProblemStatementContents = () => {
               <div className="cta-item">
                 {/* Icon Box Start */}
                 <div className="icon-box">
-                  <img src="images/icon-appointment.svg" alt />
+                  <Image
+                    src="images/icon-appointment.svg"
+                    alt="appointment"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 {/* Icon Box End */}
                 {/* Cta Content Start */}

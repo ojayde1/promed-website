@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const FaqContents = () => {
   return (
@@ -64,9 +65,11 @@ const FaqContents = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        We provide a simple online interface to connect pharmaceutical wholesalers and manufacturers
-                        to  retail outlets, hospitals, PPMVs and NGOs who need these products without leaving their offices.
-                        We equally deliver the items within one hour of order confirmation.
+                        We provide a simple online interface to connect
+                        pharmaceutical wholesalers and manufacturers to retail
+                        outlets, hospitals, PPMVs and NGOs who need these
+                        products without leaving their offices. We equally
+                        deliver the items within one hour of order confirmation.
                       </p>
                     </div>
                   </div>
@@ -97,10 +100,15 @@ const FaqContents = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        To place an order is very easy. Simple register on the platform, and after submitting all necessary details, your registration will be approved within an hour.
-                        Once approved, you can log in with your secure username and password and start shopping from your favorite wholesales and manufacturers.
-                        Add items to cart, submit your order, make payment and your order will be delivered within the next one hour.
-                        Yes, we are that efficient!
+                        To place an order is very easy. Simple register on the
+                        platform, and after submitting all necessary details,
+                        your registration will be approved within an hour. Once
+                        approved, you can log in with your secure username and
+                        password and start shopping from your favorite
+                        wholesales and manufacturers. Add items to cart, submit
+                        your order, make payment and your order will be
+                        delivered within the next one hour. Yes, we are that
+                        efficient!
                       </p>
                     </div>
                   </div>
@@ -132,9 +140,10 @@ const FaqContents = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        Our platform operates 24/7, meaning you can place orders anytime you like.
-                        However, order confirmation and delivery will be done when our wholesalers open
-                        Opening hours are usually Monday to Saturday, 8am to 6pm.
+                        Our platform operates 24/7, meaning you can place orders
+                        anytime you like. However, order confirmation and
+                        delivery will be done when our wholesalers open Opening
+                        hours are usually Monday to Saturday, 8am to 6pm.
                       </p>
                     </div>
                   </div>
@@ -165,9 +174,10 @@ const FaqContents = () => {
                   >
                     <div className="accordion-body">
                       <p>
-                        Yes, we deliver your order directly to the address provided by you.
-                        Our promise is to deliver within one hour of order packaging.
-                        We will keeo you abreast of your order delivery status at every step of the way.  
+                        Yes, we deliver your order directly to the address
+                        provided by you. Our promise is to deliver within one
+                        hour of order packaging. We will keeo you abreast of
+                        your order delivery status at every step of the way.
                       </p>
                     </div>
                   </div>
@@ -412,12 +422,21 @@ const FaqContents = () => {
                 >
                   <div className="download-apps-image">
                     <a href="#">
-                      <img src="images/google-play-img.png" alt />
+                      <Image
+                        src="images/google-play-img.png"
+                        alt="appointment"
+                        unoptimized
+                      />
                     </a>
                   </div>
                   <div className="download-apps-image">
                     <a href="#">
-                      <img src="images/app-store-img.png" alt />
+                      <Image
+                        src="images/app-store-img.png"
+                        alt="appointment"
+                        width={32}
+                        height={32}
+                      />
                     </a>
                   </div>
                 </div>
@@ -430,6 +449,12 @@ const FaqContents = () => {
               <div className="download-apps-img wow fadeInUp">
                 <figure>
                   <img src="images/app-download.png" alt />
+                  <Image
+                    src="images/app-download.png"
+                    alt="appointment"
+                    width={32}
+                    height={32}
+                  />
                 </figure>
               </div>
               {/* Download Apps Image End */}

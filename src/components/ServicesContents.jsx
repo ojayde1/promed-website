@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const ServicesContents = () => {
   return (
@@ -42,7 +43,12 @@ const ServicesContents = () => {
               {/* Our Service Item Start */}
               <div className="our-services-item wow fadeInUp">
                 <div className="service-item-image">
-                  <img src="images/icon-service-page-1.svg" alt />
+                  <Image
+                    src="/images/icon-service-page-1.svg"
+                    alt="Cardiology"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="services-item-content">
                   <h3>cardiology clinic</h3>
@@ -72,7 +78,12 @@ const ServicesContents = () => {
                 data-wow-delay="0.25s"
               >
                 <div className="service-item-image">
-                  <img src="images/icon-service-page-2.svg" alt />
+                  <Image
+                    src="/images/icon-service-page-2.svg"
+                    alt="Cardiology"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="services-item-content">
                   <h3>pathology clinic</h3>
@@ -102,7 +113,13 @@ const ServicesContents = () => {
                 data-wow-delay="0.5s"
               >
                 <div className="service-item-image">
-                  <img src="images/icon-service-page-3.svg" alt />
+                  <Image
+                    src="/images/icon-service-page-3.svg"
+                    alt="Cardiology"
+                    width={32}
+                    height={32}
+                  />
+                  c
                 </div>
                 <div className="services-item-content">
                   <h3>laboratory analysis</h3>
@@ -132,13 +149,18 @@ const ServicesContents = () => {
                 data-wow-delay="0.75s"
               >
                 <div className="service-item-image">
-                  <img src="images/icon-service-page-4.svg" alt />
+                  <Image
+                    src="/images/icon-service-page-4.svg"
+                    alt="Cardiology"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="services-item-content">
                   <h3>pediatric clinic</h3>
                   <p>
                     Comprehensive well-child checkups, growth monitoring, and
-                    developmental assessments to ensure your child's health
+                    developmental assessments to ensure your child&apos;s health
                     track.
                   </p>
                   <ul>
@@ -162,7 +184,12 @@ const ServicesContents = () => {
                 data-wow-delay="1s"
               >
                 <div className="service-item-image">
-                  <img src="images/icon-service-page-5.svg" alt />
+                  <Image
+                    src="/images/icon-service-page-5.svg"
+                    alt="Cardiology"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="services-item-content">
                   <h3>cardiac clinic</h3>
@@ -192,7 +219,12 @@ const ServicesContents = () => {
                 data-wow-delay="1.25s"
               >
                 <div className="service-item-image">
-                  <img src="images/icon-service-page-6.svg" alt />
+                  <Image
+                    src="/images/icon-service-page-6.svg"
+                    alt="Cardiology"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="services-item-content">
                   <h3>neurology clinic</h3>
@@ -250,7 +282,12 @@ const ServicesContents = () => {
               {/* Specialist Item Start */}
               <div className="specialist-item wow fadeInUp">
                 <div className="icon-box">
-                  <img src="images/icon-specialist-1.svg" alt />
+                  <Image
+                    src="/images/icon-specialist-1.svg"
+                    alt="specialist"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="specialist-content">
                   <h3>cardiology</h3>
@@ -268,7 +305,12 @@ const ServicesContents = () => {
                 data-wow-delay="0.25s"
               >
                 <div className="icon-box">
-                  <img src="images/icon-specialist-2.svg" alt />
+                  <Image
+                    src="/images/icon-specialist-2.svg"
+                    alt="specialist"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="specialist-content">
                   <h3>diagnostics</h3>
@@ -286,7 +328,12 @@ const ServicesContents = () => {
                 data-wow-delay="0.5s"
               >
                 <div className="icon-box">
-                  <img src="images/icon-specialist-3.svg" alt />
+                  <Image
+                    src="/images/icon-specialist-3.svg"
+                    alt="specialist"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="specialist-content">
                   <h3>virology</h3>
@@ -304,7 +351,12 @@ const ServicesContents = () => {
                 data-wow-delay="0.75s"
               >
                 <div className="icon-box">
-                  <img src="images/icon-specialist-4.svg" alt />
+                  <Image
+                    src="/images/icon-specialist-4.svg"
+                    alt="specialist"
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <div className="specialist-content">
                   <h3>therapy</h3>
@@ -337,7 +389,12 @@ const ServicesContents = () => {
                 {/* Team Image Start */}
                 <div className="team-image">
                   <figure className="image-anime">
-                    <img src="images/team-1.jpg" alt />
+                    <Image
+                      src="/images/team-1.jpg"
+                      alt="teams"
+                      width={32}
+                      height={32}
+                    />
                   </figure>
                   {/* Team Social List Start */}
                   <div className="team-social-list">
@@ -390,7 +447,12 @@ const ServicesContents = () => {
                 {/* Team Image Start */}
                 <div className="team-image">
                   <figure className="image-anime">
-                    <img src="images/team-2.jpg" alt />
+                    <Image
+                      src="/images/team-2.jpg"
+                      alt="teams"
+                      width={32}
+                      height={32}
+                    />
                   </figure>
                   {/* Team Social List Start */}
                   <div className="team-social-list">
@@ -443,7 +505,12 @@ const ServicesContents = () => {
                 {/* Team Image Start */}
                 <div className="team-image">
                   <figure className="image-anime">
-                    <img src="images/team-3.jpg" alt />
+                    <Image
+                      src="/images/team-3.jpg"
+                      alt="teams"
+                      width={32}
+                      height={32}
+                    />
                   </figure>
                   {/* Team Social List Start */}
                   <div className="team-social-list">
@@ -496,7 +563,12 @@ const ServicesContents = () => {
                 {/* Team Image Start */}
                 <div className="team-image">
                   <figure className="image-anime">
-                    <img src="images/team-4.jpg" alt />
+                    <Image
+                      src="/images/team-4.jpg"
+                      alt="teams"
+                      width={32}
+                      height={32}
+                    />
                   </figure>
                   {/* Team Social List Start */}
                   <div className="team-social-list">
@@ -578,70 +650,120 @@ const ServicesContents = () => {
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-1.jpg">
-                    <img src="images/cultuer-1.jpg" alt />
+                    <Image
+                      src="/images/cultuer-1.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-2.jpg">
-                    <img src="images/cultuer-2.jpg" alt />
+                    <Image
+                      src="/images/cultuer-2.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-3.jpg">
-                    <img src="images/cultuer-3.jpg" alt />
+                    <Image
+                      src="/images/cultuer-3.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-4.jpg">
-                    <img src="images/cultuer-4.jpg" alt />
+                    <Image
+                      src="/images/cultuer-4.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-5.jpg">
-                    <img src="images/cultuer-5.jpg" alt />
+                    <Image
+                      src="/images/cultuer-5.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-6.jpg">
-                    <img src="images/cultuer-6.jpg" alt />
+                    <Image
+                      src="/images/cultuer-6.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-7.jpg">
-                    <img src="images/cultuer-7.jpg" alt />
+                    <Image
+                      src="/images/cultuer-7.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-8.jpg">
-                    <img src="images/cultuer-8.jpg" alt />
+                    <Image
+                      src="/images/cultuer-8.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-9.jpg">
-                    <img src="images/cultuer-9.jpg" alt />
+                    <Image
+                      src="/images/cultuer-9.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
               <div className="caulture-img">
                 <div className="photo-gallery">
                   <a href="images/cultuer-10.jpg">
-                    <img src="images/cultuer-10.jpg" alt />
+                    <Image
+                      src="/images/cultuer-10.jpg"
+                      alt="culture"
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 </div>
               </div>
@@ -682,12 +804,22 @@ const ServicesContents = () => {
                 >
                   <div className="download-apps-image">
                     <a href="#">
-                      <img src="images/google-play-img.png" alt />
+                      <Image
+                        src="/images/google-play-img.png"
+                        alt="culture"
+                        width={32}
+                        height={32}
+                      />
                     </a>
                   </div>
                   <div className="download-apps-image">
                     <a href="#">
-                      <img src="images/app-store-img.png" alt />
+                      <Image
+                        src="/images/app-store-img.png"
+                        alt="culture"
+                        width={32}
+                        height={32}
+                      />
                     </a>
                   </div>
                 </div>
@@ -699,7 +831,12 @@ const ServicesContents = () => {
               {/* Download Apps Image Start */}
               <div className="download-apps-img">
                 <figure>
-                  <img src="images/app-download.png" alt />
+                  <Image
+                    src="/images/app-download.png"
+                    alt="culture"
+                    width={32}
+                    height={32}
+                  />
                 </figure>
               </div>
               {/* Download Apps Image End */}

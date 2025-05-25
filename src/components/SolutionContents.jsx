@@ -1,4 +1,6 @@
 import { blogs } from "@/datas/blog";
+import Link from 'next/link';
+import Image from 'next/image';
 import React from "react";
 
 const SolutionContents = () => {
@@ -20,9 +22,12 @@ const SolutionContents = () => {
               <div className="subpage-header-box">
                 <h1 className="text-anime-style-3">Solution</h1>
                 <ol className="breadcrumb wow fadeInUp">
-                  <li>
+                  {/* <li>
                     <a href="/">Home</a>
-                  </li>
+                  </li> */}
+                  <Link href="/">
+                   <a>Home</a>
+                 </Link>
                   <li>Solution</li>
                 </ol>
               </div>
@@ -91,7 +96,13 @@ const SolutionContents = () => {
               {/* Improving Image Start */}
               <div className="improving-img">
                 <figure className="image-anime reveal">
-                  <img src="/pictures/top-up-pharmacy.jpeg" alt />
+                 
+                  <Image
+                      src="/pictures/top-up-pharmacy.jpeg"
+                      alt="teams"
+                      width={32}
+                      height={32}
+                    />
                 </figure>
               </div>
               {/* Improving Image End */}
@@ -110,7 +121,13 @@ const SolutionContents = () => {
               <div className="cta-item">
                 {/* Icon Box Start */}
                 <div className="icon-box">
-                  <img src="images/icon-appointment.svg" alt />
+                 
+                  <Image
+                      src="images/icon-appointment.svg"
+                      alt="appointment"
+                      width={32}
+                      height={32}
+                    />
                 </div>
                 {/* Icon Box End */}
                 {/* Cta Content Start */}
@@ -156,36 +173,89 @@ const SolutionContents = () => {
           </div>
           <div className="row">
             {blogs?.map((item) => (
-              <div className="col-lg-4 col-md-6">
-                {/* Post Item Start */}
-                <div className="post-item wow fadeInUp" data-wow-delay="0.25s">
-                  {/* Post Image Start */}
-                  <div className="post-featured-image">
-                    <figure className="image-anime">
-                      <a href="#">
-                        <img src={item?.image} alt />
-                      </a>
-                    </figure>
-                  </div>
-                  {/* Post Image End */}
-                  {/* Post Content Start */}
-                  <div className="post-item-body">
-                    <h2>
-                      <a href={`/blog/${item.id}`}>{item.title}</a>
-                    </h2>
-                    <p>{truncateText(`${item.contents[0]?.content}`, 20)}</p>
-                  </div>
-                  {/* Post Content End */}
-                  {/* Btn Readmore Start */}
-                  <div className="btn-readmore">
-                    <a href={`/blog/${item.id}`}>
-                      read more <i className="fa-solid fa-arrow-right-long" />
-                    </a>
-                  </div>
-                  {/* Btn Readmore End */}
-                </div>
-                {/* Post Item End */}
-              </div>
+              // <div className="col-lg-4 col-md-6">
+              //   {/* Post Item Start */}
+              //   <div className="post-item wow fadeInUp" data-wow-delay="0.25s">
+              //     {/* Post Image Start */}
+              //     <div className="post-featured-image">
+              //       <figure className="image-anime">
+              //         <a href="#">
+              //           <img src={item?.image} alt />
+              //         </a>
+              //       </figure>
+              //     </div>
+              //     {/* Post Image End */}
+              //     {/* Post Content Start */}
+              //     <div className="post-item-body">
+              //       <h2>
+              //         <a href={`/blog/${item.id}`}>{item.title}</a>
+              //       </h2>
+              //       <p>{truncateText(`${item.contents[0]?.content}`, 20)}</p>
+              //     </div>
+              //     {/* Post Content End */}
+              //     {/* Btn Readmore Start */}
+              //     <div className="btn-readmore">
+              //       <a href={`/blog/${item.id}`}>
+              //         read more <i className="fa-solid fa-arrow-right-long" />
+              //       </a>
+              //     </div>
+              //     {/* Btn Readmore End */}
+              //   </div>
+              //   {/* Post Item End */}
+              // </div>
+
+              <div className="col-lg-4 col-md-6" key={item.id || index}>
+    {/* Post Item Start */}
+    <div className="post-item wow fadeInUp" data-wow-delay="0.25s">
+      {/* Post Image Start */}
+      <div className="post-featured-image">
+        <figure className="image-anime">
+          {/* 2. FIX: Do not use an `<a>` element to navigate... Use `<Link />` from `next/link` (ESLint Error)
+          // For internal navigation in Next.js, always use <Link>.
+          // The `href="#"` was likely a placeholder, now it links to the actual blog post.
+          */}
+          <Link href={`/blog/${item.id}`}>
+            {/* 3. FIX: Using `<img>` could result in slower LCP... Use `<Image />` (ESLint Warning)
+            // 4. FIX: Invalid alt value for img. (ESLint Warning)
+            // Replace <img> with <Image />. It requires 'src', 'alt', 'width', and 'height'.
+            */}
+            <Image
+              src={item?.image}
+              alt={item?.title || "Blog post image"} // Provide meaningful alt text for accessibility
+              width={400} // IMPORTANT: Replace with the actual intrinsic width of your images
+              height={250} // IMPORTANT: Replace with the actual intrinsic height of your images
+              layout="responsive" // Common layout to make images scale responsively
+            />
+          </Link>
+        </figure>
+      </div>
+      {/* Post Image End */}
+      {/* Post Content Start */}
+      <div className="post-item-body">
+        <h2>
+          {/* 5. FIX: Do not use an `<a>` element to navigate... Use `<Link />` (ESLint Error)
+          // Another internal link, so use <Link>.
+          */}
+          <Link href={`/blog/${item.id}`}>{item.title}</Link>
+        </h2>
+        <p>{truncateText(`${item.contents[0]?.content}`, 20)}</p>
+      </div>
+      {/* Post Content End */}
+      {/* Btn Readmore Start */}
+      <div className="btn-readmore">
+        {/* 6. FIX: Do not use an `<a>` element to navigate... Use `<Link />` (ESLint Error)
+        // Final internal link, use <Link>. The nested <a> is for styling.
+        */}
+        <Link href={`/blog/${item.id}`}>
+          <a>
+            read more <i className="fa-solid fa-arrow-right-long" />
+          </a>
+        </Link>
+      </div>
+      {/* Btn Readmore End */}
+    </div>
+    {/* Post Item End */}
+  </div>
             ))}
           </div>
         </div>

@@ -1,4 +1,7 @@
 import { blogs } from "@/datas/blog";
+import Link from "next/link";
+import Image from "next/image";
+
 import { teamList } from "@/datas/teams";
 import React from "react";
 
@@ -129,12 +132,20 @@ const AboutContents = () => {
                 <div className="page-about-image">
                   <div className="page-about-image-1">
                     <figure className="image-anime reveal">
-                      <img src="/pictures/promed-image-15.jpg" alt />
+                      <Image
+                        src="/pictures/promed-image-15.jpg"
+                        alt="picture"
+                        unoptimized
+                      />
                     </figure>
                   </div>
                   <div className="page-about-image-2">
                     <figure className="image-anime reveal">
-                      <img src="/pictures/promed-hero-image-1.jpg" alt />
+                      <Image
+                        src="/pictures/promed-hero-image-1.jpg"
+                        alt="hero image"
+                        unoptimized
+                      />
                     </figure>
                   </div>
                 </div>
@@ -153,7 +164,11 @@ const AboutContents = () => {
               {/* Improving Image Start */}
               <div className="improving-img">
                 <figure className="image-anime reveal">
-                  <img src="/pictures/promed-image-4.jpg" alt />
+                  <Image
+                    src="/pictures/promed-image-4.jpg"
+                    alt="picture"
+                    unoptimized
+                  />
                 </figure>
               </div>
               {/* Improving Image End */}
@@ -221,7 +236,7 @@ const AboutContents = () => {
                   {/* Team Image Start */}
                   <div className="team-image">
                     <figure className="image-anime">
-                      <img src={item.image} alt />
+                      <Image src={item.image} alt="image" unoptimized />
                     </figure>
                     {/* Team Social List Start */}
                     <div className="team-social-list">
@@ -280,7 +295,11 @@ const AboutContents = () => {
               <div className="cta-item">
                 {/* Icon Box Start */}
                 <div className="icon-box">
-                  <img src="images/icon-appointment.svg" alt />
+                  <Image
+                    src="images/icon-appointment.svg"
+                    alt="appointment"
+                    unoptimized
+                  />
                 </div>
                 {/* Icon Box End */}
                 {/* Cta Content Start */}
@@ -326,31 +345,76 @@ const AboutContents = () => {
           </div>
           <div className="row">
             {blogs?.map((item) => (
-              <div className="col-lg-4 col-md-6">
+              // <div className="col-lg-4 col-md-6">
+              //   {/* Post Item Start */}
+              //   <div className="post-item wow fadeInUp" data-wow-delay="0.25s">
+              //     {/* Post Image Start */}
+              //     <div className="post-featured-image">
+              //       <figure className="image-anime">
+              //         <a href="#">
+              //           <img src={item?.image} alt />
+              //         </a>
+              //       </figure>
+              //     </div>
+              //     {/* Post Image End */}
+              //     {/* Post Content Start */}
+              //     <div className="post-item-body">
+              //       <h2>
+              //         <a href={`/blog/${item.id}`}>{item.title}</a>
+              //       </h2>
+              //       <p>{truncateText(`${item.contents[0]?.content}`, 20)}</p>
+              //     </div>
+              //     {/* Post Content End */}
+              //     {/* Btn Readmore Start */}
+              //     <div className="btn-readmore">
+              //       <a href={`/blog/${item.id}`}>
+              //         read more <i className="fa-solid fa-arrow-right-long" />
+              //       </a>
+              //     </div>
+              //     {/* Btn Readmore End */}
+              //   </div>
+              //   {/* Post Item End */}
+              // </div>
+
+              <div className="col-lg-4 col-md-6" key={item.id}>
                 {/* Post Item Start */}
                 <div className="post-item wow fadeInUp" data-wow-delay="0.25s">
                   {/* Post Image Start */}
                   <div className="post-featured-image">
                     <figure className="image-anime">
-                      <a href="#">
-                        <img src={item?.image} alt />
-                      </a>
+                      {/* Fix 2: Use Link for navigation - replace <a href="#"> with Link */}
+                      <Link href={`/blog/${item.id}`}>
+                        {" "}
+                        {/* Assuming you want to link to the blog post details */}
+                        {/* Fix 3: Use Image component and add alt, width, height */}
+                        <Image
+                          src={item?.image}
+                          alt={item?.title || "Blog Post Image"} // Provide a meaningful alt or empty string if decorative
+                          width={400} // Replace with appropriate width for your image
+                          height={250} // Replace with appropriate height for your image
+                          layout="responsive" // Common layout for responsive images in lists
+                        />
+                      </Link>
                     </figure>
                   </div>
                   {/* Post Image End */}
                   {/* Post Content Start */}
                   <div className="post-item-body">
                     <h2>
-                      <a href={`/blog/${item.id}`}>{item.title}</a>
+                      {/* Fix 4: Use Link for navigation */}
+                      <Link href={`/blog/${item.id}`}>{item.title}</Link>
                     </h2>
                     <p>{truncateText(`${item.contents[0]?.content}`, 20)}</p>
                   </div>
                   {/* Post Content End */}
                   {/* Btn Readmore Start */}
                   <div className="btn-readmore">
-                    <a href={`/blog/${item.id}`}>
-                      read more <i className="fa-solid fa-arrow-right-long" />
-                    </a>
+                    {/* Fix 5: Use Link for navigation */}
+                    <Link href={`/blog/${item.id}`}>
+                      <a>
+                        read more <i className="fa-solid fa-arrow-right-long" />
+                      </a>
+                    </Link>
                   </div>
                   {/* Btn Readmore End */}
                 </div>

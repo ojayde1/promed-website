@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -13,14 +14,19 @@ const Footer = () => {
                 {/* Footer Logo Start */}
                 <div className="footer-logo">
                   <figure>
-                    <img src="/images/logo-promed.png" alt />
+                    <Image
+                      src="/images/logo-promed.png"
+                      alt="Cardiology"
+                      unoptimized
+                    />
                   </figure>
                 </div>
                 {/* Footer Logo End */}
                 {/* Footer Content Start */}
                 <div className="footer-content">
                   <p>
-                  We are the one-stop shop for all your pharmaceutical and healthcare needs.
+                    We are the one-stop shop for all your pharmaceutical and
+                    healthcare needs.
                   </p>
                 </div>
                 {/* Footer Content End */}
@@ -162,7 +168,8 @@ const Footer = () => {
                 {/* Footer Copyright Start */}
                 <div className="footer-copyright-text">
                   <p>
-                    copyright 2024 © <span>Promed Africa</span> all right reserved.
+                    copyright 2024 © <span>Promed Africa</span> all right
+                    reserved.
                   </p>
                 </div>
                 {/* Footer Copyright End */}

@@ -1,5 +1,7 @@
 import { teamList } from "@/datas/teams";
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const OurTeamContents = () => {
   return (
@@ -14,7 +16,7 @@ const OurTeamContents = () => {
                 <h1 className="text-anime-style-3">Our Team</h1>
                 <ol className="breadcrumb wow fadeInUp">
                   <li>
-                    <a href="/">Home</a>
+                    <Link href="/">Home</Link>
                   </li>
                   <li>our team</li>
                 </ol>
@@ -35,7 +37,11 @@ const OurTeamContents = () => {
                 {/* Image Box Start */}
                 <div className="team-member-img">
                   <figure className="image-anime">
-                    <img src={item.image} alt />
+                    <Image
+                        src={item.image}
+                        alt=""
+                        unoptimized
+                      />
                   </figure>
                 </div>
                 {/* Image Box End */}
