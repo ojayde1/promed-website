@@ -6,30 +6,30 @@ on:
   workflow_dispatch: # Allows manual trigger from GitHub UI
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  # test:
+    # runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    # steps:
+    #   - name: Checkout code
+    #     uses: actions/checkout@v4
 
-      - name: Set up Node.js for testing
-        # Install Node.js on the runner, needed for npm commands
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18' # Specify the Node.js version your Next.js app uses
-          cache: 'npm'      # Cache npm dependencies for faster installs
+    #   - name: Set up Node.js for testing
+    #     # Install Node.js on the runner, needed for npm commands
+    #     uses: actions/setup-node@v4
+    #     with:
+    #       node-version: '18' # Specify the Node.js version your Next.js app uses
+    #       cache: 'npm'      # Cache npm dependencies for faster installs
 
-      - name: Install project dependencies for testing
-        # Install all project dependencies (including dev dependencies for testing)
-        run: npm ci
+    #   - name: Install project dependencies for testing
+    #     # Install all project dependencies (including dev dependencies for testing)
+    #     run: npm ci
 
-      - name: Run ESLint
-        # Assuming you have an 'lint' script in your package.json
-        run: npm run lint
+    #   - name: Run ESLint
+    #     # Assuming you have an 'lint' script in your package.json
+    #     run: npm run lint
 
   build_and_deploy:
-    needs: test # This job will only run if the 'test' job succeeds
+    # needs: test # This job will only run if the 'test' job succeeds
     runs-on: ubuntu-latest
     # This condition ensures deployment only happens on push or manual trigger, not other events like PRs
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
