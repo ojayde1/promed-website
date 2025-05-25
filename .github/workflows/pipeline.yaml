@@ -1,0 +1,110 @@
+name: Next.js App CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ] # Triggers on pushes to the 'main' branch
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js for testing
+        # Install Node.js on the runner, needed for npm commands
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Specify the Node.js version your Next.js app uses
+          cache: 'npm'      # Cache npm dependencies for faster installs
+
+      - name: Install project dependencies for testing
+        # Install all project dependencies (including dev dependencies for testing)
+        run: npm ci
+
+      - name: Run ESLint
+        # Assuming you have an 'lint' script in your package.json
+        run: npm run lint
+
+  build_and_deploy:
+    needs: test # This job will only run if the 'test' job succeeds
+    runs-on: ubuntu-latest
+    # This condition ensures deployment only happens on push or manual trigger, not other events like PRs
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Next.js Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: . # '.' means the Dockerfile and source code are in the root of the repo
+          push: true
+          # Replace 'your_dockerhub_username' with your actual Docker Hub username
+          # 'your-nextjs-app' should be the name you want for your Docker image
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/promed-website:latest
+          # Use GitHub Actions cache for Docker builds
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          platforms: linux/amd64 # Specify platform (e.g., linux/amd64 for Intel/AMD EC2)
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.0 # IMPORTANT: Use a specific version like v1.0.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }} # Ensure this secret holds your private key content
+          script: |
+            # Define the application directory on your EC2 instance
+            APP_DIR="/home/${{ secrets.SERVER_USERNAME }}/promed-website"
+
+            # Create the directory if it doesn't exist and ensure proper ownership
+            if [ ! -d "$APP_DIR" ]; then
+              mkdir -p "$APP_DIR"
+              sudo chown -R ${{ secrets.SERVER_USERNAME }}:${{ secrets.SERVER_USERNAME }} "$APP_DIR"
+            fi
+            cd "$APP_DIR"
+
+            # Create/Update the docker-compose.yaml file on the EC2 instance dynamically
+            cat <<EOF > docker-compose.yaml
+            services:
+              nextjs_app:
+                image: ${{ secrets.DOCKERHUB_USERNAME }}/promed-website:latest
+                container_name: nextjs_app_container
+                restart: always
+                ports:
+                  - "3000:3000" # Map host port 3000 to container port 3000
+                environment:
+                  NODE_ENV: production
+                  # Add any other environment variables your Next.js app needs at runtime
+                  # For example: NEXT_PUBLIC_API_URL: http://your_ec2_public_ip:5050
+            EOF
+
+            # Log in to Docker Hub on the EC2 instance before pulling the image
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+            # Pull the latest Docker image for the Next.js app
+            echo "Pulling latest Next.js image..."
+            docker compose pull nextjs_app
+
+            # Stop and remove existing containers, then start new ones with the latest image
+            echo "Starting Next.js application..."
+            docker compose up -d --force-recreate
+
+            # Clean up old Docker images to save disk space on EC2
+            echo "Cleaning up old Docker images..."
+            docker image prune -f
+
+            echo "Deployment successful for Next.js app!"
